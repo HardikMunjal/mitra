@@ -1,0 +1,60 @@
+SELECT SPECIFIC FIELDS
+db.templateimages.find({},{_id:1})
+
+
+
+Find _id in mongodb
+db.templateimages.find({"_id":ObjectId('5b0e58abd8d7e3124da9c453')}).pretty()
+
+ALSO
+
+db.templateimages.find(ObjectId('5b0e58abd8d7e3124da9c453')).pretty()
+
+
+
+
+Update Array(Add element) in Mongo
+
+db.templateimages.update({'_id':ObjectId('5b0bec859414381249754bf4')},{ $push: { "templateImageFields":"5b0eb85898a3c22a3c0094ef"} })
+
+
+
+1:Mongodb store its documents in BSON format
+
+2:BSON is a binary encoded format for JSON data.
+3: Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table.
+4: A document is a set of key-value pairs. Documents have dynamic schema. 
+5: _id is a 12 bytes hexadecimal number which assures the uniqueness of every document. You can provide _id while inserting the document. If you don’t provide then MongoDB provides a unique id for every document. These 12 bytes first 4 bytes for the current timestamp, next 3 bytes for machine id, next 2 bytes for process id of MongoDB server and remaining 3 bytes are simple incremental VALUE.
+6: ADVANTAGES OVER RDMS:
+Scheema less,no complex join, easy to scale out, auto sharding, rich queries, replication and high availbility, indexing on any attribute.
+7:
+
+db.mycol.find({"by":"tutorials point"}).pretty()     where by = 'tutorials point'
+db.mycol.find({"likes":{$lt:50}}).pretty()           where likes < 50
+db.mycol.find({"likes":{$lte:50}}).pretty()          where likes <= 50
+db.mycol.find({"likes":{$gt:50}}).pretty()           where likes > 50
+db.mycol.find({"likes":{$ne:50}}).pretty()           where likes != 50
+
+
+
+
+INDEXING
+
+You can create simple and complex indexes and they will be used for speeding up finds (queries), matches (in aggregates) and sorts. It has support for indexes on multiple fields,
+
+MongoDB, as well as other databases, use B-trees to index. With some exceptions, the algorithm is the same as a relational database.
+
+
+
+
+Now even though from the introduction we have seen that indexes are good for queries, but having too many indexes can slow down other operations such as the Insert, Delete and Update operation.
+
+
+
+
+null insted of not rec
+
+
+[1, 2].includes(1) // returns true
+
+[1, 2].includes(4) // returns false
